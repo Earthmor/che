@@ -28,8 +28,8 @@ public class MavenOptsEnvVariableProvider implements EnvVarProvider {
 
   @Inject
   public MavenOptsEnvVariableProvider(
-      @Named("che.workspace.maven.options") String javaOpts,
-      @Nullable @Named("che.workspace.http.proxy.java.options") String httpProxyJavaOptions) {
+      @Named("che.workspace.maven_options") String javaOpts,
+      @Nullable @Named("che.workspace.http_proxy_java_options") String httpProxyJavaOptions) {
     this.javaOpts = httpProxyJavaOptions == null ? javaOpts : javaOpts + " " + httpProxyJavaOptions;
   }
 

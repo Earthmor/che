@@ -275,16 +275,12 @@ else
 
 fi
 
-if [ -z "${CHE_WORKSPACE_AGENT_JAVA_OPTIONS}" ]; then
-  if [ -z "${CHE_WORKSPACE_AGENT_JAVA_OPTIONS_DEFAULT}" ]; then
+if [ -z "${CHE_WORKSPACE_WSAGENT_JAVA_OPTIONS}" ]; then
     >&2 echo "Not able to find appropriate JAVA_OPTS for workspace agent JVM."
-    >&2 echo "At least one variable CHE_WORKSPACE_AGENT_JAVA_OPTIONS or CHE_WORKSPACE_AGENT_JAVA_OPTIONS_DEFAULT has to be defined."
+    >&2 echo "Environment variable CHE_WORKSPACE_WSAGENT_JAVA_OPTIONS has to be defined."
     exit 1
-  else
-    export JAVA_OPTS="${CHE_WORKSPACE_AGENT_JAVA_OPTIONS_DEFAULT}"
-  fi
 else
-   export JAVA_OPTS="${CHE_WORKSPACE_AGENT_JAVA_OPTIONS}"
+   export JAVA_OPTS="${CHE_WORKSPACE_WSAGENT_JAVA_OPTIONS}"
 fi
 
 export JPDA_ADDRESS="4403" && ~/che/ws-agent/bin/catalina.sh jpda run

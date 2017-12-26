@@ -19,20 +19,20 @@ import org.eclipse.che.commons.lang.Pair;
 public class WorkspaceMavenServerJavaOptsEnvVariableProvider implements EnvVarProvider {
 
   /** Env variable for jvm settings */
-  public static final String CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS_DEFAULT =
-      "CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS_DEFAULT";
+  public static final String CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS =
+      "CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS";
 
   private String javaOpts;
 
   @Inject
   public WorkspaceMavenServerJavaOptsEnvVariableProvider(
-      @Named("che.workspace.maven.server.java.options.default") String javaOpts,
-      @Nullable @Named("che.workspace.http.proxy.java.options") String httpProxyJavaOptions) {
+      @Named("che.workspace.maven_server_java_options") String javaOpts,
+      @Nullable @Named("che.workspace.http_proxy_java_options") String httpProxyJavaOptions) {
     this.javaOpts = httpProxyJavaOptions == null ? javaOpts : javaOpts + " " + httpProxyJavaOptions;
   }
 
   @Override
   public Pair<String, String> get(RuntimeIdentity runtimeIdentity) {
-    return Pair.of(CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS_DEFAULT, javaOpts);
+    return Pair.of(CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS, javaOpts);
   }
 }
