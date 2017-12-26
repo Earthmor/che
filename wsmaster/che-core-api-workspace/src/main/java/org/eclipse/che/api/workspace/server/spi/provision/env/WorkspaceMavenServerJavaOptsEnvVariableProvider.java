@@ -20,7 +20,7 @@ public class WorkspaceMavenServerJavaOptsEnvVariableProvider implements EnvVarPr
 
   /** Env variable for jvm settings */
   public static final String CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS =
-      "CHE_WORKSPACE_MAVEN_SERVER_JAVA_OPTIONS";
+      "CHE_WORKSPACE_MAVEN__SERVER__JAVA__OPTIONS";
 
   private String javaOpts;
 
